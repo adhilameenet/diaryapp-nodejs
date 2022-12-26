@@ -1,0 +1,30 @@
+{
+  "name": "diaryapp-nodejs",
+  "version": "1.0.0",
+  "description": "A simple web app to write your daily, and save. This project is being done as part of Tinkerhub Co-Coder Program",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/adhilameenet/diaryapp-nodejs"
+  },
+  "keywords": [
+    "diaryapp",
+    "nodejs",
+    "tinkerhub",
+    "express",
+    "mongoose"
+  ],
+  "author": "Adhil Ameen ET",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6"
+  }
+}
