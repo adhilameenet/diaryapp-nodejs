@@ -10,3 +10,6 @@ module.exports.getSignupPage = (req,res) => {
 module.exports.getDashboard = (req,res) => {
     res.render('dashboard', {title : 'Dashboard'})
 }
+module.exports.postSignup = (req,res) => {
+    console.log(req.body)
+}
