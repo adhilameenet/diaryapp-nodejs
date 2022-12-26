@@ -1,3 +1,5 @@
+const User = require('../models/User')
+
 module.exports.getHomePage = (req,res) => {
     res.render('home', {title : 'Diary App'})
 }
@@ -10,6 +12,18 @@ module.exports.getSignupPage = (req,res) => {
 module.exports.getDashboard = (req,res) => {
     res.render('dashboard', {title : 'Dashboard'})
 }
-module.exports.postSignup = (req,res) => {
-    console.log(req.body)
+module.exports.postSignup = async (req,res) => {
+   try {
+    const {username,password,confirmPasword} = req.body;
+    const user = new User({
+        username,
+        password,
+        confirmPasword
+    })
+    await user.save()
+    res.redirect('/dashboard')
+   } catch(err) {
+    console.log(err)
+    return res.status(400).json("Somethinng Error Occured")
+   }
 }
