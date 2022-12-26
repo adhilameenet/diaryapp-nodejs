@@ -12,6 +12,7 @@ module.exports.getSignupPage = (req, res) => {
 module.exports.getDashboard = (req, res) => {
   res.render('dashboard', { title: 'Dashboard' })
 }
+
 module.exports.postSignup = async (req, res) => {
   try {
     const { username, password } = req.body
@@ -35,9 +36,19 @@ module.exports.postLogin = async (req, res) => {
   try {
     const user = await User.login(username, password)
     if (user) {
+      req.session.isAuth = true;
       res.redirect('/dashboard')
     }
   } catch (error) {
     console.log(error)
   }
+}
+module.exports.getLogout = (req,res) => {
+  req.session.destroy((err) => {
+    if(err) {
+      console.log(err)
+    } else {
+      res.redirect('/login')
+    }
+  })
 }

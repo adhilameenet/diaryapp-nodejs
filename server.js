@@ -2,10 +2,20 @@ const express = require('express')
 const path = require('path')
 const connectDB = require('./config/connection')
 const exphbs = require('express-handlebars')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
 const app = express()
 
+// Database Connection
 connectDB()
 
+// cookie & session
+app.use(cookieParser())
+app.use(session({
+    secret : 'secret key',
+    resave : false,
+    saveUninitialized : true
+}))
 // view engine setup
 app.set('views', path.join(__dirname , 'views'))
 app.set('view engine', 'hbs')
