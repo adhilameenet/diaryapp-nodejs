@@ -14,11 +14,10 @@ module.exports.getDashboard = (req,res) => {
 }
 module.exports.postSignup = async (req,res) => {
    try {
-    const {username,password,confirmPasword} = req.body;
+    const {username,password} = req.body;
     const user = new User({
         username,
-        password,
-        confirmPasword
+        password
     })
     await user.save()
     res.redirect('/dashboard')

@@ -12,16 +12,6 @@ const userSchema = new mongoose.Schema({
         required : true,
         minlength : [6, 'Password must be atleast 6 Characters']
     },
-    confirmPassword : {
-        type : String,
-        required : true,
-        validate : {
-            validator : function (el) {
-                return el === this.password
-            },
-            message : "Password are not the same"
-        }
-    },
     diary : {
         type : mongoose.Schema.Types.ObjectId,
         ref :  'Diary'
