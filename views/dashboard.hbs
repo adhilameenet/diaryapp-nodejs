@@ -1,13 +1,11 @@
 {{> header}}
-<div class="container mt-5">
+<div class="container mt-4">
     <div class="mb-3 d-flex justify-content-between align-items-center">
-        {{#if diary}}
-            <h2 class="text-muted">Recent Diaries</h2>
-        {{/if}}
-        <a class="btn btn-dark w-50" href="/diary/create">Add Diary</a>
+        <a class="btn btn-dark w-25" href="/diary/create">Add Diary</a>
     </div>
     <div class="row">
         {{#if diary}}
+            <h2 class="text-muted">Recent Diaries</h2>
             {{#each diary}}
                 <div class="col-12 col-md-3">
                     <div class="card">

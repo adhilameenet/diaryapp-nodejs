@@ -7,7 +7,7 @@ module.exports.postCreatePage = async (req,res) => {
     const date = req.body.ddate;
     const title = req.body.dtitle;
     const content = req.body.dcontent
-    
+
     if(!date || !title || !content) {
         return console.log("Please Provide all Fields")
     }
