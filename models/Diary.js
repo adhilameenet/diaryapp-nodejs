@@ -7,7 +7,8 @@ const diarySchema = new mongoose.Schema({
     },
     content : {
         type : String,
-        required : [true , 'Diary should have some content']
+        required : [true , 'Diary should have some content'],
+        trim : true
     },
     date : {
         type : Date,

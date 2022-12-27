@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const Diary = require('../models/Diary')
 
 module.exports.getHomePage = (req, res) => {
   res.render('home', { title: 'Diary App' })
@@ -9,8 +10,9 @@ module.exports.getLoginPage = (req, res) => {
 module.exports.getSignupPage = (req, res) => {
   res.render('signup', { title: 'Sign Up' })
 }
-module.exports.getDashboard = (req, res) => {
-  res.render('dashboard', { title: 'Dashboard' })
+module.exports.getDashboard = async (req, res) => {
+  const diary = await Diary.find({}).lean()
+  res.render('dashboard', { user: req.session.user, diary})
 }
 
 module.exports.postSignup = async (req, res) => {
@@ -36,7 +38,7 @@ module.exports.postLogin = async (req, res) => {
   try {
     const user = await User.login(username, password)
     if (user) {
-      req.session.isAuth = true;
+      req.session.user = user
       res.redirect('/dashboard')
     }
   } catch (error) {

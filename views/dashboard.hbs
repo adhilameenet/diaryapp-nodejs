@@ -1,69 +1,32 @@
 {{> header}}
 <div class="container mt-5">
     <div class="mb-3 d-flex justify-content-between align-items-center">
-        <h2 class="text-muted">Recent Diaries</h2>
-        <a class="btn btn-dark w-50" href="#">Add Diary</a>
+        {{#if diary}}
+            <h2 class="text-muted">Recent Diaries</h2>
+        {{/if}}
+        <a class="btn btn-dark w-50" href="/diary/create">Add Diary</a>
     </div>
     <div class="row">
-        <div class="col-12 col-md-3">
-            <div class="card">
-                <img class="card-img-top" src="/img/diary.jpg" alt="card-image">
-                <div class="card-body">
-                    <h5 class="card-title">18/12/2022</h5>
-                    <p class="card-text">Today is an Unforgettable Day in My Life. I don't Know How to Write and What to
-                        Write...</p>
-                    <div class="btn-group">
-                        <a href="#" class="btn btn-dark">View <i class="bi bi-card-text"></i></a>
-                        <a href="#" class="btn btn-primary">Edit <i class="bi bi-pencil-square"></i></a>
-                        <a href="#" class="btn btn-danger">Delete <i class="bi bi-trash"></i></a>
+        {{#if diary}}
+            {{#each diary}}
+                <div class="col-12 col-md-3">
+                    <div class="card">
+                        <img class="card-img-top" src="/img/diary.jpg" alt="card-image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <p class="card-text">{{this.content}}</p>
+                            <p class="card-text">{{this.date}}</p>
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-dark">View <i class="bi bi-card-text"></i></a>
+                                <a href="#" class="btn btn-primary">Edit <i class="bi bi-pencil-square"></i></a>
+                                <a href="#" class="btn btn-danger">Delete <i class="bi bi-trash"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-3">
-            <div class="card">
-                <img class="card-img-top" src="/img/diary.jpg" alt="card-image">
-                <div class="card-body">
-                    <h5 class="card-title">18/12/2022</h5>
-                    <p class="card-text">Today is an Unforgettable Day in My Life. I don't Know How to Write and What to
-                        Write...</p>
-                    <div class="btn-group">
-                        <a href="#" class="btn btn-dark">View <i class="bi bi-card-text"></i></i></a>
-                        <a href="#" class="btn btn-primary">Edit <i class="bi bi-pencil-square"></i></a>
-                        <a href="#" class="btn btn-danger">Delete <i class="bi bi-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-3">
-            <div class="card">
-                <img class="card-img-top" src="/img/diary.jpg" alt="card-image">
-                <div class="card-body">
-                    <h5 class="card-title">18/12/2022</h5>
-                    <p class="card-text">Today is an Unforgettable Day in My Life. I don't Know How to Write and What to
-                        Write...</p>
-                    <div class="btn-group">
-                        <a href="#" class="btn btn-dark">View <i class="bi bi-card-text"></i></a>
-                        <a href="#" class="btn btn-primary">Edit <i class="bi bi-pencil-square"></i></a>
-                        <a href="#" class="btn btn-danger">Delete <i class="bi bi-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-3">
-            <div class="card">
-                <img class="card-img-top" src="/img/diary.jpg" alt="card-image">
-                <div class="card-body">
-                    <h5 class="card-title">18/12/2022</h5>
-                    <p class="card-text">Today is an Unforgettable Day in My Life. I don't Know How to Write and What to
-                        Write...</p>
-                    <div class="btn-group">
-                        <a href="#" class="btn btn-dark">View <i class="bi bi-card-text"></i></i></a>
-                        <a href="#" class="btn btn-primary">Edit <i class="bi bi-pencil-square"></i></a>
-                        <a href="#" class="btn btn-danger">Delete <i class="bi bi-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            {{/each}}
+        {{else}}
+            <h4 class="text-secondary">No Entry Found</h4>
+        {{/if}}    
     </div>
 </div>
