@@ -11,9 +11,10 @@ const app = express()
 connectDB()
 
 // cookie & session
+
 app.use(cookieParser())
 app.use(session({
-    secret : 'secret key',
+    secret : process.env.SESSION_SECRET,
     resave : false,
     saveUninitialized : true
 }))
@@ -40,5 +41,5 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routes/auth'))
 app.use('/diary', require('./routes/diary'))
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 app.listen(port , () => console.log(`server listening on port ${port}`))

@@ -1,7 +1,9 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', true)
+const connectionString = process.env.CONNECTION_STRING ;
 const connectDB = () => {
-    mongoose.connect('mongodb://localhost/diaryapp', {
+    mongoose.connect( connectionString , {
         useNewUrlParser : true,
         useUnifiedTopology : true
     }).then(() => {
