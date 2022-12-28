@@ -12,6 +12,7 @@ module.exports.postCreatePage = async (req, res) => {
   }
   try {
     const diary = new Diary({
+      user : req.session.user._id,  
       date: date,
       markdown: content,
     })

@@ -11,8 +11,8 @@ module.exports.getSignupPage = (req, res) => {
   res.render('signup', { title: 'Sign Up' })
 }
 module.exports.getDashboard = async (req, res) => {
-  const diary = await Diary.find({}).lean()
-  res.render('dashboard', { user: req.session.user, diary })
+  const diary = await Diary.find({user: req.session.user._id}).lean()
+  res.render('dashboard', { user: req.session.user , diary })
 }
 
 module.exports.postSignup = async (req, res) => {

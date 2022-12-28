@@ -5,6 +5,11 @@ const { JSDOM } = require('jsdom')
 const dompurify = createDomPurify(new JSDOM().window)
 
 const diarySchema = new mongoose.Schema({
+    user : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : true,
+        ref : 'User'
+    },
     markdown : {
         type : String,
         required : true
