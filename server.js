@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const connectDB = require('./config/connection')
 const exphbs = require('express-handlebars')
+const methodOverride = require('method-override')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const app = express()
@@ -26,6 +27,8 @@ app.engine('hbs', exphbs.engine({
     layoutsDir: __dirname + '/views/layouts/',
     partialsDir: __dirname + '/views/partials/'
 }))
+
+app.use(methodOverride('_method'))
 
 // parsing incoming data
 app.use(express.json())
