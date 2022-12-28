@@ -8,6 +8,7 @@ module.exports.postCreatePage = async (req,res) => {
     const title = req.body.dtitle;
     const content = req.body.dcontent
 
+
     if(!date || !title || !content) {
         return console.log("Please Provide all Fields")
     }
@@ -22,5 +23,10 @@ module.exports.postCreatePage = async (req,res) => {
    } catch (error) {
     console.log(error)
    }
+}
 
+module.exports.getSingleDiary = async (req,res) => {
+    const diaryId = req.params.id
+    const diary = await Diary.findById({_id : diaryId}).lean()
+    res.render('diary/view', {diary , user : req.session.user})
 }

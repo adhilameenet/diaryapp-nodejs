@@ -11,11 +11,10 @@
                     <div class="card">
                         <img class="card-img-top" src="/img/diary.jpg" alt="card-image">
                         <div class="card-body">
-                            <h5 class="card-title">{{this.title}}</h5>
-                            <p class="card-text">{{this.content}}</p>
                             <p class="card-text">{{this.date}}</p>
+                            <h5 class="card-title text-muted"><b>{{this.title}}</b></h5>
                             <div class="btn-group">
-                                <a href="#" class="btn btn-dark">View <i class="bi bi-card-text"></i></a>
+                                <a href="/diary/{{this._id}}" class="btn btn-dark">View <i class="bi bi-card-text"></i></a>
                                 <a href="#" class="btn btn-primary">Edit <i class="bi bi-pencil-square"></i></a>
                                 <a href="#" class="btn btn-danger">Delete <i class="bi bi-trash"></i></a>
                             </div>
