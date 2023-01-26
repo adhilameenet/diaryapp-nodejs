@@ -3,11 +3,11 @@
 # **Diary App**
 
 ## About 
-A simple web app to write your daily, and save. <br> This project is being done as part of Tinkerhub Co-Coder Program
+A simple web app to write your daily, and save. This project is being done as part of Tinkerhub Co-Coder Program
 <br><br>
 
 ## Status
-Work on Progress...
+Work in Progress...
 
 ## How to Run
 
@@ -51,7 +51,7 @@ npm start
 
 ```
 ## Built With
-- HTML
+- Handlebars
 - Bootstrap
 - Node JS
 - Express JS
