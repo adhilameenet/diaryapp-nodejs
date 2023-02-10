@@ -2,7 +2,7 @@ const Diary = require('../models/Diary')
 const moment = require('moment')
 
 module.exports.getCreatePage = (req, res) => {
-  res.render('diary/create', { title: 'Create', user: req.user })
+  res.render('diary/create', { title: 'Create', user: req.session.user })
 }
 module.exports.postCreatePage = async (req, res) => {
   const date = req.body.date
@@ -38,7 +38,7 @@ module.exports.getEditDiaryPage = async (req, res) => {
   const diaryId = req.params.id
   const diary = await Diary.findById({ _id: diaryId }).lean()
   const formatedDate = moment(diary.date).format('YYYY-MM-DD')
-  res.render('diary/edit', { diary, user: req.user , formatedDate })
+  res.render('diary/edit', { diary, user: req.session.user , formatedDate })
 }
 
 module.exports.updateDiaryPage = async (req, res) => {
