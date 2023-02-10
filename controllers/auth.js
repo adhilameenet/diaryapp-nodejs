@@ -12,7 +12,7 @@ module.exports.getSignupPage = (req, res) => {
 }
 module.exports.getDashboard = async (req, res) => {
   const diary = await Diary.find({user: req.session.user._id}).lean()
-  res.render('dashboard', { user: req.user , diary })
+  res.render('dashboard', { user: req.session.user , diary })
 }
 
 module.exports.postSignup = async (req, res) => {
